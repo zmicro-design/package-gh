@@ -1,0 +1,27 @@
+#!/bin/bash
+
+help() {
+  echo "Usage:"
+  echo "  zmicro package install gh <args...>"
+  echo ""
+}
+
+core() {
+  if [ "$1" = "-h" ] || [ "$1" = "--help" ]; then
+    help
+    exit 0
+  fi
+
+  which gh >>/dev/null 2>&1
+  if [ "$?" != "0" ]; then
+    pm install -y gh
+  fi
+
+  log::success "install gh success."
+}
+
+run() {
+  core $@
+}
+
+run $@

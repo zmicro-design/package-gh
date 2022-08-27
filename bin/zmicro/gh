@@ -1,0 +1,17 @@
+#!/bin/bash
+
+help() {
+  echo "Usage:"
+  echo "  zmicro gh <args ...>"
+  echo ""
+}
+
+core() {
+  gh "$@"
+}
+
+run() {
+  core "$@"
+}
+
+run "$@"
